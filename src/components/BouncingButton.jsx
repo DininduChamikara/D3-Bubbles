@@ -6,8 +6,8 @@ const BouncingButton = () => {
   };
 
   const buttonStyles = {
-    width: "15px",
-    height: "50px",
+    width: "10px",
+    height: "40px",
     borderRadius: "40px",
     border: "4px solid black",
     display: "flex",
@@ -17,8 +17,8 @@ const BouncingButton = () => {
   };
 
   const dotStyles = {
-    width: "15px",
-    height: "15px",
+    width: "10px",
+    height: "10px",
     borderRadius: "50%",
     backgroundColor: "black",
     marginBottom: "2px",
