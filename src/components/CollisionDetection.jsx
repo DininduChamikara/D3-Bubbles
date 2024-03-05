@@ -5,9 +5,23 @@ import data from "../data/collision_detection.json";
 function CollisionDetection() {
 
   const windowSize = useRef([window.innerWidth, window.innerHeight]);
-
   const canvasRef = useRef();
 
+  useEffect(() => {
+    const updateWindowSize = () => {
+      windowSize.current = [window.innerWidth, window.innerHeight];
+    };
+
+    // Add event listener to update windowSize ref when the window is resized
+    window.addEventListener('resize', updateWindowSize);
+
+    // Clean up event listener
+    return () => {
+      window.removeEventListener('resize', updateWindowSize);
+    };
+  }, []); // Empty dependency array ensures the effect runs only once
+
+  // Use windowSize.current for width and height calculation
   const width = windowSize.current[0] - 5;
   const height = windowSize.current[1] - 5;
 
@@ -18,6 +32,7 @@ function CollisionDetection() {
     const context = canvasRef.current.getContext("2d");
 
     d3.select(context.canvas)
+    .classed("svg-container", true) 
       .on("touchmove", (event) => event.preventDefault())
       .on("pointermove", pointermoved);
 

@@ -7,14 +7,6 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 
-html {
-	height: 100%;
-	display: grid;
-	background-color: #ffdd40;
-	font-family: "Audiowide", cursive;
-	color: #333;
-}
-
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;

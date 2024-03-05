@@ -36,6 +36,6 @@ p {
 		text-shadow: 0em -7em 10em #fff;
 	}
 	to {
-		text-shadow: 0 0.02em #fff, 0.02em 0 #fff, -0.02em 0 #fff, 0 -0.02em #fff;
+		text-shadow: 0 0.02em black, 0.02em 0 black, -0.02em 0 black, 0 -0.02em black;
 	}
 }

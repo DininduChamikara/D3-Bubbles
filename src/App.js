@@ -1,10 +1,25 @@
-import { useRef } from "react";
+import { useEffect, useRef } from "react";
 import CollisionDetection from "./components/CollisionDetection";
 import CoolSpotlightHeading from "./components/CoolSpotlihtHeadin/CoolSpotlightHeading";
 
 function App() {
   const windowSize = useRef([window.innerWidth, window.innerHeight]);
 
+  useEffect(() => {
+    const updateWindowSize = () => {
+      windowSize.current = [window.innerWidth, window.innerHeight];
+    };
+
+    // Add event listener to update windowSize ref when the window is resized
+    window.addEventListener('resize', updateWindowSize);
+
+    // Clean up event listener
+    return () => {
+      window.removeEventListener('resize', updateWindowSize);
+    };
+  }, []); // Empty dependency array ensures the effect runs only once
+
+  // Use windowSize.current for width and height calculation
   const width = windowSize.current[0] - 5;
   const height = windowSize.current[1] - 5;
 
@@ -19,13 +34,12 @@ function App() {
             height: height,
             top: 0,
             zIndex: -10,
-            display:'flex',
-            alignItems:"center",
-            justifyContent:'center'
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
           }}
         >
-          {/* <h1 style={{fontSize:100}}>DCP</h1> */}
-          <CoolSpotlightHeading/>
+          <CoolSpotlightHeading />
         </div>
       </div>
     </div>
