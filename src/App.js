@@ -46,8 +46,8 @@ function App() {
           style={{
             position: "absolute",
             width: width,
-            height: 150,
-            top: height - 150,
+            height: 180,
+            top: height - 180,
             zIndex: 1,
             display: "flex",
             alignItems: "center",
