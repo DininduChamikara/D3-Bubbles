@@ -1,6 +1,7 @@
 import { useEffect, useRef } from "react";
 import CollisionDetection from "./components/CollisionDetection";
 import CoolSpotlightHeading from "./components/CoolSpotlihtHeadin/CoolSpotlightHeading";
+import VisitMeButton from "./components/VisitMeButton/VisitMeButton";
 
 function App() {
   const windowSize = useRef([window.innerWidth, window.innerHeight]);
@@ -11,11 +12,11 @@ function App() {
     };
 
     // Add event listener to update windowSize ref when the window is resized
-    window.addEventListener('resize', updateWindowSize);
+    window.addEventListener("resize", updateWindowSize);
 
     // Clean up event listener
     return () => {
-      window.removeEventListener('resize', updateWindowSize);
+      window.removeEventListener("resize", updateWindowSize);
     };
   }, []); // Empty dependency array ensures the effect runs only once
 
@@ -40,6 +41,22 @@ function App() {
           }}
         >
           <CoolSpotlightHeading />
+        </div>
+        <div
+          style={{
+            position: "absolute",
+            width: width,
+            height: 150,
+            top: height - 150,
+            zIndex: 1,
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+          }}
+        >
+          <div style={{ position: "relative" }}>
+            <VisitMeButton/>
+          </div>
         </div>
       </div>
     </div>
